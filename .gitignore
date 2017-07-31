@@ -1,6 +1,6 @@
 target/
 bin/
-.mvn
+.mvn/
 
 ### STS ###
 .apt_generated
