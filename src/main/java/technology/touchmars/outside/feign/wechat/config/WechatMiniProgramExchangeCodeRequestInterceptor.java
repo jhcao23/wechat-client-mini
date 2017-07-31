@@ -7,7 +7,8 @@ import feign.RequestInterceptor;
 import feign.RequestTemplate;
 
 /**
- * https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
+ * the request format is:
+ * {@code https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code}
  * 
  * @author jhcao
  *
