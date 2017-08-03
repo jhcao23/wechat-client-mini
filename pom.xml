@@ -4,7 +4,7 @@
 
 	<groupId>technology.touchmars</groupId>
 	<artifactId>wechat-client-mini</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0.RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>wechat-client-mini</name>
