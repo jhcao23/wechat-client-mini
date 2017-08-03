@@ -1,8 +1,5 @@
 package technology.touchmars.outside.feign.wechat.config;
 
-import org.springframework.cloud.netflix.feign.encoding.BaseRequestInterceptor;
-import org.springframework.cloud.netflix.feign.encoding.FeignClientEncodingProperties;
-
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 

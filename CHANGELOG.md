@@ -1,0 +1,2 @@
+- 1.0.0.RELEASE: clean up code from 0.0.1
+- 0.0.1-SNAPSHOT: make it work! remove `consumes & produces`. add `text/plain` to `MappingJackson2HttpMessageConverter` 

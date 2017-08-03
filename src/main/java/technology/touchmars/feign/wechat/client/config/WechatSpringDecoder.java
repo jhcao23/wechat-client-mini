@@ -1,14 +1,8 @@
 package technology.touchmars.feign.wechat.client.config;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.cloud.netflix.feign.support.SpringDecoder;
-
-import feign.FeignException;
-import feign.Response;
 
 public class WechatSpringDecoder extends SpringDecoder {
 

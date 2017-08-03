@@ -1,7 +1,6 @@
 package technology.touchmars.outside.feign.wechat.config;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.Filter;
