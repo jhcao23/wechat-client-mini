@@ -16,33 +16,33 @@ public class WechatSpringDecoder extends SpringDecoder {
 		super(messageConverters);		
 	}
 	
-	@Override
-	public Object decode(final Response response, Type type) throws IOException, FeignException {
-		final SimpleResponse o;
-		try{
-			o = (SimpleResponse)super.decode(response, SimpleResponse.class);			
-		}catch(Exception e){
-			//TODO: this part may be stupid => need rethink!!!
-			e.printStackTrace();
-			if(type.equals(SimpleResponse.class)){
-				throw e;
-			}else{
-				return super.decode(response, type);
-			}			
-		}
-		if(o!=null && SimpleResponse.notZero(o.getErrcode())){
-			if(type.equals(SimpleResponse.class)){
-				return o;
-			}else{
-				throw new WechatClientException(o);
-			}
-		}else{//not error
-			if(type.equals(SimpleResponse.class)){
-				return null;
-			}else{
-				return super.decode(response, type);
-			}
-		}
-	}
+//	@Override
+//	public Object decode(final Response response, Type type) throws IOException, FeignException {
+//		final SimpleResponse o;
+//		try{
+//			o = (SimpleResponse)super.decode(response, SimpleResponse.class);			
+//		}catch(Exception e){
+//			//TODO: this part may be stupid => need rethink!!!
+//			e.printStackTrace();
+//			if(type.equals(SimpleResponse.class)){
+//				throw e;
+//			}else{
+//				return super.decode(response, type);
+//			}			
+//		}
+//		if(o!=null && SimpleResponse.notZero(o.getErrcode())){
+//			if(type.equals(SimpleResponse.class)){
+//				return o;
+//			}else{
+//				throw new WechatClientException(o);
+//			}
+//		}else{//not error
+//			if(type.equals(SimpleResponse.class)){
+//				return null;
+//			}else{
+//				return super.decode(response, type);
+//			}
+//		}
+//	}
 
 }

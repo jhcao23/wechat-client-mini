@@ -1,5 +1,6 @@
 package technology.touchmars.feign.wechat.client.config;
 
+import java.util.Map;
 import java.util.Objects;
 
 import org.springframework.util.StringUtils;
@@ -7,6 +8,8 @@ import org.springframework.util.StringUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * ErrorResponse
@@ -18,12 +21,17 @@ public class SimpleResponse {
 	public static final String OK = "ok";
 	public static final String NAME_ERROR_CODE = "errcode";
 	public static final String NAME_ERROR_MSG = "errmsg";
+	public static final String NAME_ERROR_HINTS = "hints";
 
 	@JsonProperty(NAME_ERROR_CODE)
 	private Integer errcode = null;
 
 	@JsonProperty(NAME_ERROR_MSG)
 	private String errmsg = null;
+	
+	@Getter @Setter
+	@JsonProperty(NAME_ERROR_HINTS)
+	private Map<String, String> hints = null;	
 
 	public SimpleResponse errcode(Integer errcode) {
 		this.errcode = errcode;

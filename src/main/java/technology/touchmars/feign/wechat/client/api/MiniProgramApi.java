@@ -8,10 +8,7 @@ import technology.touchmars.feign.wechat.client.model.SessionKeyToken;
 
 public interface MiniProgramApi {
 
-	@GetMapping(value="/sns/jscode2session",
-			produces = "application/json",
-			consumes = "application/json",
-			headers = {"Content-Type=application/json","Accept=application/json"})
+	@GetMapping(value="/sns/jscode2session")
 	public ResponseEntity<SessionKeyToken> exchangeCode(
 			@RequestParam(value = "js_code", required = true) String code);
 }
