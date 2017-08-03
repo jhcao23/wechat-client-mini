@@ -1,5 +1,9 @@
 package technology.touchmars.outside.feign.wechat.config;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import javax.servlet.Filter;
 
 import org.springframework.beans.factory.ObjectFactory;
@@ -8,6 +12,9 @@ import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.cloud.netflix.feign.support.ResponseEntityDecoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
 import feign.Logger;
@@ -29,6 +36,19 @@ public class WechatMiniProgramCommonConfiguration {
 	
 	@Bean
 	public Decoder feignDecoder() {
+		List<HttpMessageConverter<?>> list = this.messageConverters.getObject().getConverters();
+		for(HttpMessageConverter<?> c0: list) {
+			if(c0 instanceof MappingJackson2HttpMessageConverter) {
+				MappingJackson2HttpMessageConverter c = (MappingJackson2HttpMessageConverter)c0;
+				List<MediaType> types0 = c.getSupportedMediaTypes();
+				List<MediaType> types = new ArrayList<MediaType>();
+				types.add(MediaType.TEXT_PLAIN);
+				for(MediaType t: types0) {
+					types.add(t);
+				}
+				c.setSupportedMediaTypes(types);
+			}
+		}
 		return new ResponseEntityDecoder(new WechatSpringDecoder(this.messageConverters));
 	}
 	
